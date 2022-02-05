@@ -1,0 +1,44 @@
+.board-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  height: 20em;
+  width: 20em;
+  background-color: #f5f5f5;
+  border-radius: 0.5em;
+}
+
+.dice-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
+  gap: 1em 1em;
+  margin: 0 auto;
+}
+
+.dice-roll {
+  height: 2em;
+  width: 6em;
+  background-color: #5035ff;
+  color: #ffffff;
+  font-family: "Karla", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.2em;
+  box-shadow: 0 0.2em 0.48em rgba(0, 0, 0, 0.18);
+  border-radius: 0.2em;
+  border: none;
+  cursor: pointer;
+}
+
+.dice-roll:hover {
+  background-color: #3617fd;
+}
+
+.dice-roll:active {
+  border: inset 0.3em #3617fd;
+  color: #ebebeb;
+}

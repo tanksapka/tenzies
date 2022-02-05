@@ -1,0 +1,13 @@
+.die-item {
+  height: 2em;
+  width: 2em;
+  box-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.15);
+  border-radius: 0.2em;
+  color: #2b283a;
+  background-color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 2em;
+  cursor: pointer;
+}

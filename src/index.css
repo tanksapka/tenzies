@@ -4,4 +4,7 @@
 
 body {
   margin: 0;
+  padding: 10em 0;
+  background-color: #0b2434;
+  font-family: "Karla", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
