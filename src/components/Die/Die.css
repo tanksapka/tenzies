@@ -15,3 +15,59 @@
 .die-held {
   background-color: #59e391;
 }
+
+.dot {
+  margin: 0.14em;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background-color: #2b283a;
+}
+
+.face-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face-2,
+.face-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.face-2 .dot:nth-of-type(2),
+.face-3 .dot:nth-of-type(3) {
+  align-self: flex-end;
+}
+
+.face-3 .dot:nth-of-type(2) {
+  align-self: center;
+}
+
+.face-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 0.63em;
+}
+
+.face-5 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 0.63em;
+}
+
+.face-5 .dot:nth-of-type(5) {
+  position: absolute;
+  margin-top: 0.8em;
+}
+
+.face-6 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
