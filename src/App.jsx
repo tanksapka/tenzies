@@ -2,11 +2,14 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
-import Die from "./components/Die";
+import Die from "./components/Die/Die";
+import RollCounter from "./components/RollCounter/RollCounter";
+import TimeCounter from "./components/TimeCounter/TimeCounter";
 
 function App() {
+  const defaultGameStats = () => ({ isWon: false, rolls: 0, time: Date.now() });
   const [dice, setDice] = useState(allNewDice());
-  const [tenzies, setTenzies] = useState(false);
+  const [tenzies, setTenzies] = useState(defaultGameStats());
 
   function generateDie() {
     return {
@@ -21,8 +24,8 @@ function App() {
   }
 
   function rollDice() {
-    if (tenzies) {
-      setTenzies(false);
+    if (tenzies.isWon) {
+      setTenzies(defaultGameStats());
       setDice(allNewDice());
     } else {
       setDice((oldDice) =>
@@ -30,6 +33,10 @@ function App() {
           return die.isHeld ? die : generateDie();
         })
       );
+      setTenzies((oldTenzies) => ({
+        ...oldTenzies,
+        rolls: oldTenzies.rolls + 1,
+      }));
     }
   }
 
@@ -44,7 +51,10 @@ function App() {
   useEffect(() => {
     const firstValue = dice[0].value;
     if (dice.every((die) => die.isHeld && die.value === firstValue)) {
-      setTenzies(true);
+      setTenzies((oldTenzies) => ({
+        ...oldTenzies,
+        isWon: true,
+      }));
     }
   }, [dice]);
 
@@ -58,11 +68,15 @@ function App() {
           Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
         </p>
       </div>
+      <div className="stat-container">
+        <RollCounter {...tenzies} />
+        <TimeCounter {...tenzies} />
+      </div>
       <div className="dice-container">{diceElements}</div>
       <button className="dice-roll" onClick={rollDice}>
-        {tenzies ? "New Game" : "Roll"}
+        {tenzies.isWon ? "New Game" : "Roll"}
       </button>
-      {tenzies && <Confetti />}
+      {tenzies.isWon && <Confetti />}
     </main>
   );
 }

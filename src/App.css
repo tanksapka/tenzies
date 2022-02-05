@@ -10,6 +10,12 @@
   border-radius: 0.5em;
 }
 
+.stat-container {
+  width: 16.5em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .dice-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
