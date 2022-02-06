@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import "./TimeCounter.css";
 
 export default function TimeCounter(props) {
-  const [currentTime, setCurrentTime] = useState("00:00");
+  const { isWon, updateScore } = props;
+  const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
     function calcTimeElapsed() {
       if (!props.isWon) {
-        const elapsedTime = Date.now() - props.time;
-        const isoString = new Date(elapsedTime).toISOString();
-        setCurrentTime(isoString.substring(14, 19));
+        setCurrentTime(Date.now() - props.time);
       }
     }
     const myInterval = setInterval(calcTimeElapsed, 1000);
@@ -18,9 +17,13 @@ export default function TimeCounter(props) {
     };
   }, [props.isWon, props.time]);
 
+  useEffect(() => {
+    isWon && updateScore(currentTime);
+  }, [isWon]);
+
   return (
     <div className="time-counter">
-      Time: <span className="time-counter-value">{currentTime}</span>
+      Time: <span className="time-counter-value">{props.convertTime(currentTime)}</span>
     </div>
   );
 }

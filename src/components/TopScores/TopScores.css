@@ -1,0 +1,26 @@
+.top-scores-container {
+  margin: 0 auto;
+  min-height: 8em;
+}
+
+.top-scores-title {
+  font-family: "Karla", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.4rem;
+  color: #2b283a;
+  letter-spacing: -0.1rem;
+  margin: 0 0 0.5em 0;
+}
+
+.top-scores-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.top-scores-list li {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.03rem;
+  color: #2b283a;
+  text-align: center;
+}
